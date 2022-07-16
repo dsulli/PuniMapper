@@ -16,6 +16,15 @@
                 </div>
             </div>
         </div>
+        <div>
+            <p>Debugging stuff</p>
+            <br>
+            <p>params {{ paramCoords }}</p>
+            <br>
+            <p>selectedcoords {{ selectedCoords }}</p>
+            <p>full 
+                query {{$route.query}}</p>
+        </div>
     </div>
 </template>
 
@@ -27,20 +36,24 @@ import coords from '../static/coordinates.json'
             selectedCoords: {},
             spawnPoint: null,
             imgHeight: 0,
+            paramCoords: {}
         }
     },
-    async asyncData({ params, query }) {
+    async asyncData({ params }) {
         const slug = params.slug;
         const data = coords[slug];
+        
+      return { slug, data }
+    },
+    beforeMount() {
         let newSelectedCoords = {};
-        if(query.selectedCoords != "undefined") {
-            let selectedCoordsArr = query.selectedCoords.split(",");
-            for(var i = 1; i < data.coords.length + 1;  i++) {
+        if(typeof this.$route.query.selectedCoords !== "undefined") {
+            let selectedCoordsArr = this.$route.query.selectedCoords.split(",");
+            for(var i = 1; i < this.data.coords.length + 1;  i++) {
                 newSelectedCoords[i] = selectedCoordsArr.find(selectedCoord => selectedCoord == i.toString()) ? true : false;
             }
         }
-        
-      return { slug, data, paramCoords: newSelectedCoords }
+        this.paramCoords = newSelectedCoords;
     },
     mounted() {
         if(Object.keys(this.paramCoords).length !== 0) {
@@ -51,7 +64,6 @@ import coords from '../static/coordinates.json'
             for(var i = 1; i < this.data.coords.length + 1; i++) {
                 newSelectedCoords[i] = false;
             }
-            console.log(newSelectedCoords)
             this.selectedCoords = newSelectedCoords;
         }
         
