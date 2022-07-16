@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/UltimaThule", {data:[{slug:"UltimaThule",data:{name:"Ultima Thule",coords:[[1520,3595],[2135,3400],[1760,3035],[1645,2585],[1175,2170],[820,2060],[1330,1050],[1940,1000],[2810,1260]],maxCoords:4200}}],fetch:{},mutations:void 0});

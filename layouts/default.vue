@@ -5,43 +5,50 @@
         <NuxtLink to="/" class="text-2xl font-bold "><span class="text-amber-100">PuniMapper</span></NuxtLink>
         <div class="mt-12 font-bold uppercase text-stone-400">Endwalker</div>
         <ul>
-            <li>Labyrinthos</li>
-            <li>Garlemald</li>
-            <li>Ultima Thule</li>
+            <li><NuxtLink to="/Labyrinthos" class="text-rose-300 hover:text-rose-100" >Labyrinthos</NuxtLink></li>
+            <li><NuxtLink to="/Garlemald" class="text-rose-300 hover:text-rose-100" >Garlemald</NuxtLink></li>
+            <li><NuxtLink to="/UltimaThule" class="text-rose-300 hover:text-rose-100" >Ultima Thule</NuxtLink></li>
         </ul>
         <div class="mt-6 font-bold uppercase text-stone-400">Shadowbringers</div>
         <ul>
-            <li>Amh Araeng</li>
+            <li><NuxtLink to="/AmhAraeng" class="text-rose-300 hover:text-rose-100" >Amh Araeng</NuxtLink></li>
             <li><NuxtLink to="/IlMheg" class="text-rose-300 hover:text-rose-100" >Il Mheg</NuxtLink></li>
         </ul>
         <div class="mt-6 font-bold uppercase text-stone-400">Stormblood</div>
         <ul>
-            <li>The Azim Steppe<li>
-            <li>Yanxia</li>
+            <li><NuxtLink to="/TheAzimSteppe" class="text-rose-300 hover:text-rose-100" >The Azim Steppe</NuxtLink><li>
+            <li><NuxtLink to="/Yanxia" class="text-rose-300 hover:text-rose-100" >Yanxia</NuxtLink></li>
         </ul>
         <div class="mt-6 font-bold uppercase text-stone-400">Heavensward</div>
         <ul>
-            <li>Coerthas Western Highlands</li>
+            <li><NuxtLink to="/CoerthasWesternHighlands" class="text-rose-300 hover:text-rose-100" >Coerthas Western Highlands</NuxtLink></li>
         </ul>
         <div class="mt-6 font-bold uppercase text-stone-400">A Realm Reborn</div>
         <ul>
-            <li>Central Thanalan</li>
-            <li>Lower La Noscea</li>
-            <li>Upper La Noscea</li>
+            <li><NuxtLink to="/CentralThanalan" class="text-rose-300 hover:text-rose-100" >Central Thanalan</NuxtLink></li>
+            <li><NuxtLink to="/LowerLaNoscea" class="text-rose-300 hover:text-rose-100" >Lower La Noscea</NuxtLink></li>
+            <li><NuxtLink to="/UpperLaNoscea" class="text-rose-300 hover:text-rose-100" >Upper La Noscea</NuxtLink></li>
         </ul>
         </div>
     </div>
     <div class="md:min-w-4/5 w-full bg-stone-800 text-slate-100 py-12">
         <div class="container px-12 mx-auto">
             <Nuxt />
+            <div class="mt-12 flex flex-col md:flex-row">
+      <p class="md:pr-6">Map Data from <a href="https://cablemonkey.us/huntmap2/" class="text-rose-300 hover:text-rose-100" >Cable Monkey</a> </p>
+      <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
+      <p class="md:px-6">Map Images from <a href="https://xivapi.com/" class="text-rose-300 hover:text-rose-100" >xivapi</a> </p>
+      <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
+      <p class="md:pl-6">Inspired by <a href="https://www.retahgaming.com/ffxiv/hunttraintool.php" class="text-rose-300 hover:text-rose-100">Retah's Train Tool</a></p>
+      
+    </div>
+    <div class="text-stone-400"><p>(C) SQUARE ENIX CO., LTD. All Rights Reserved. FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. All material used under license.</p></div>
         </div>
     </div>
   </div>
 </template>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;

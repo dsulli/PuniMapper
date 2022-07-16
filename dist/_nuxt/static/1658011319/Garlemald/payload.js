@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Garlemald", (function(a){return {data:[{slug:a,data:{name:a,coords:[[975,1160],[1220,1275],[1190,1735],[1570,1965],[2895,2075],[3300,2185],[2320,2555],[3245,3235],[2740,3405]],maxCoords:4200}}],fetch:{},mutations:void 0}}("Garlemald")));

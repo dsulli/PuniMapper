@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Labyrinthos", (function(a){return {data:[{slug:a,data:{name:a,coords:[[1710,945],[3015,835],[3430,1350],[3210,2600],[2520,2550],[1655,1630],[1055,1925],[575,3385],[1205,3540],[1960,3835]],maxCoords:4200}}],fetch:{},mutations:void 0}}("Labyrinthos")));

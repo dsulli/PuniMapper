@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Yanxia", (function(a){return {data:[{slug:a,data:{name:a,coords:[[1690,1380],[2160,945],[2365,1150],[2710,1040],[2870,1135],[1230,3060],[1765,3430]],maxCoords:4200}}],fetch:{},mutations:void 0}}("Yanxia")));
