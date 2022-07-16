@@ -35,13 +35,15 @@
         <div class="container px-12 mx-auto">
             <Nuxt />
             <div class="mt-12 flex flex-col md:flex-row">
-      <p class="md:pr-6">Map Data from <a href="https://cablemonkey.us/huntmap2/" class="text-rose-300 hover:text-rose-100" >Cable Monkey</a> </p>
-      <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
-      <p class="md:px-6">Map Images from <a href="https://xivapi.com/" class="text-rose-300 hover:text-rose-100" >xivapi</a> </p>
-      <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
-      <p class="md:pl-6">Inspired by <a href="https://www.retahgaming.com/ffxiv/hunttraintool.php" class="text-rose-300 hover:text-rose-100">Retah's Train Tool</a></p>
-      
-    </div>
+                <p class="md:pr-6">Made by <a href="https://floonxiv.carrd.co/" class="text-rose-300 hover:text-rose-100"  target="_blank">Floon Drif</a> </p>
+                <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
+                <p class="md:px-6">Map Data from <a href="https://cablemonkey.us/huntmap2/" class="text-rose-300 hover:text-rose-100"  target="_blank">Cable Monkey</a> </p>
+                <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
+                <p class="md:px-6">Map Images from <a href="https://xivapi.com/" class="text-rose-300 hover:text-rose-100"  target="_blank">xivapi</a> </p>
+                <span class="text-stone-600 hidden md:inline-block">&#11201;</span>
+                <p class="md:pl-6">Inspired by <a href="https://www.retahgaming.com/ffxiv/hunttraintool.php" class="text-rose-300 hover:text-rose-100" target="_blank">Retah's Train Tool</a></p>
+            
+            </div>
     <div class="text-stone-400"><p>(C) SQUARE ENIX CO., LTD. All Rights Reserved. FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. All material used under license.</p></div>
         </div>
     </div>
