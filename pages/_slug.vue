@@ -3,7 +3,7 @@
         <div class="container mx-auto">
             <h1>{{ data.name }}</h1>
             <div class="mapContainer" ref="mapContainer">
-                <img ref="mapImg" @load="setImgHeight" src="https://ffxiv.gamerescape.com/w/images/thumb/d/d0/N4f4_-_Il_Mheg.png/815px-N4f4_-_Il_Mheg.png" />
+                <img ref="mapImg" @load="setImgHeight" :src="require(`~/assets/img/${slug}.png`)" />
                 <div ref="coords" class="coords">
                     <div 
                         v-for="(crd, idx) in data.coords.length" 
