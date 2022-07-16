@@ -65,7 +65,16 @@ import coords from '../static/coordinates.json'
     },
     beforeMount() {
         let newSelectedCoords = {};
-        if(typeof this.$route.query.selectedCoords !== "undefined") {
+        if(typeof this.$route.query.spawnPoint !== "undefined") {
+            for(var i = 1; i < this.data.coords.length + 1; i++) {
+                if(i.toString() == this.$route.query.spawnPoint) {
+                    newSelectedCoords[i] = false;
+                } else {
+                    newSelectedCoords[i] = true;
+                }
+                
+            }
+        } else if(typeof this.$route.query.selectedCoords !== "undefined") {
             let selectedCoordsArr = this.$route.query.selectedCoords.split(",");
             for(var i = 1; i < this.data.coords.length + 1;  i++) {
                 newSelectedCoords[i] = selectedCoordsArr.find(selectedCoord => selectedCoord == i.toString()) ? true : false;
@@ -79,7 +88,7 @@ import coords from '../static/coordinates.json'
             this.selectedCoords =  this.paramCoords;
         } else if (lsObj !== null) {
             this.selectedCoords = JSON.parse(lsObj);
-            this.updateQuery();
+            
         } else {
             
             let newSelectedCoords = {};
@@ -87,16 +96,31 @@ import coords from '../static/coordinates.json'
                 newSelectedCoords[i] = false;
             }
             this.selectedCoords = newSelectedCoords;
-        }     
+        }
+        this.updateQuery();
+        this.checkForSpawnPoint();
         
     },
+    computed: {
+        isFullyMapped() {
+            let unselectedList = Object.values(this.paramCoords).filter((crd) => crd === false);
+            return unselectedList.length === 1 ? true : false;
+        },
+    },
     methods: {
+        checkForSpawnPoint() {
+            if(this.isFullyMapped) {
+                let foundPoint = Object.keys(this.paramCoords).find((crd) => this.paramCoords[crd] === false);
+                this.spawnPoint = foundPoint;
+            }
+            
+           
+        },
         checkIfSelectedById(id) {
             let idx = id.slice(id.indexOf("-") + 1, id.length);
             return this.selectedCoords[parseInt(idx)];
         },
         updateQuery() {
-            console.log(this.selectedCoords)
             if(typeof this.selectedCoords !== "undefined") {
                  let paramArr = Object.keys(this.selectedCoords).filter(key => this.selectedCoords[key]).join(",");
                 this.$router.push({path: this.$route.path, query: { selectedCoords: paramArr }})
@@ -111,7 +135,6 @@ import coords from '../static/coordinates.json'
         setImgHeight(){
             this.imgHeight = this.$refs.mapImg.offsetHeight - 20;
             let convRate = this.imgHeight / this.data.maxCoords;
-            console.log(convRate)
             for(var i = 0; i < this.data.coords.length; i++) {
                 let newCoords = [];
 
@@ -136,6 +159,7 @@ import coords from '../static/coordinates.json'
                 this.selectedCoords[parseInt(idx)] = true;
             }
             this.updateQuery();
+            this.checkForSpawnPoint();
         },
         copyUrl() {
             navigator.clipboard.writeText(window.location.href);
@@ -149,6 +173,7 @@ import coords from '../static/coordinates.json'
                 newSelectedCoords[i] = false;
             }
             this.selectedCoords = newSelectedCoords;
+            this.updateQuery();
         }
     }
   }
