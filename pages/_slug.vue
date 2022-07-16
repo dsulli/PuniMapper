@@ -75,9 +75,9 @@ import coords from '../static/coordinates.json'
     },
     mounted() {
         let lsObj = window.localStorage.getItem(`${this.slug}-coords`);
-        if(Object.keys(this.paramCoords).length !== 0) {
+        if(typeof this.paramCoords !== "undefined" && Object.keys(this.paramCoords).length !== 0) {
             this.selectedCoords =  this.paramCoords;
-        } else if (typeof lsObj !== "undefined") {
+        } else if (lsObj !== null) {
             this.selectedCoords = JSON.parse(lsObj);
             this.updateQuery();
         } else {
@@ -96,8 +96,12 @@ import coords from '../static/coordinates.json'
             return this.selectedCoords[parseInt(idx)];
         },
         updateQuery() {
-            let paramArr = Object.keys(this.selectedCoords).filter(key => this.selectedCoords[key]).join(",");
-            this.$router.push({path: this.$route.path, query: { selectedCoords: paramArr }})
+            console.log(this.selectedCoords)
+            if(typeof this.selectedCoords !== "undefined") {
+                 let paramArr = Object.keys(this.selectedCoords).filter(key => this.selectedCoords[key]).join(",");
+                this.$router.push({path: this.$route.path, query: { selectedCoords: paramArr }})
+            }
+           
         },
         imgLoaded() {
             this.imgIsLoaded = true;
